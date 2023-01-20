@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "fast-api-sts"
+version = "0.1.0"
+description = "FastAPI special mission"
+authors = ["neulvo <kzvxy@naver.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "fast_api_sts"}]
+
+[tool.poetry.dependencies]
+python = ">=3.6.2,<3.10"
+fastapi = "^0.70.0"
+uvicorn = "^0.15.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.2.5"
+black = "^21.9b0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
