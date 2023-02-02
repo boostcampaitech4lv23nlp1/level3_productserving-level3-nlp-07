@@ -21,7 +21,7 @@ Coded by www.creative-tim.com
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Paper Dashboard 2 by Creative Tim
+    오픈 채팅방 요약 서비스
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -32,6 +32,7 @@ Coded by www.creative-tim.com
   <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
 </head>
 
 <body class="">
@@ -45,7 +46,7 @@ Coded by www.creative-tim.com
           <!-- <p>CT</p> -->
         </a>
         <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          YOUM Bora
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
           </div> -->
@@ -65,12 +66,12 @@ Coded by www.creative-tim.com
               <p>Icons</p>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="./map.html">
               <i class="nc-icon nc-pin-3"></i>
               <p>Maps</p>
             </a>
-          </li>
+          </li> -->
           <li>
             <a href="./notifications.html">
               <i class="nc-icon nc-bell-55"></i>
@@ -89,18 +90,18 @@ Coded by www.creative-tim.com
               <p>Table List</p>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="./typography.html">
               <i class="nc-icon nc-caps-small"></i>
               <p>Typography</p>
             </a>
-          </li>
-          <li class="active-pro">
+          </li> -->
+          <!-- <li class="active-pro">
             <a href="./upgrade.html">
               <i class="nc-icon nc-spaceship"></i>
               <p>Upgrade to PRO</p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -116,7 +117,7 @@ Coded by www.creative-tim.com
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Paper Dashboard 2</a>
+            <a class="navbar-brand" href="javascript:;">오픈 채팅방 요약 서비스</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -125,15 +126,15 @@ Coded by www.creative-tim.com
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <form>
-              <div class="input-group no-border">
+              <!-- <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <i class="nc-icon nc-zoom-split"></i>
                   </div>
                 </div>
-              </div>
-            </form>
+              </div> -->
+            <!-- </form>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link btn-magnify" href="javascript:;">
@@ -163,13 +164,152 @@ Coded by www.creative-tim.com
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
       <div class="content">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">오픈 채팅방 선택</h5>
+                  <!-- <p style="font-size: 10px">오픈 채팅방 선택</p> -->
+                <!-- <p class="card-category">24 Hours performance</p> -->
+              </div>
+              <div class="card-body ">
+                <canvas width="400" height="10"></canvas>
+                <!-- <canvas id=chartHours width="400" height="100"></canvas> -->
+                <!-- <canvas id=chartHours></canvas> -->
+              </div>
+              <div class="card-footer ">
+                <!-- <hr>
+                <div class="stats">
+                  <i class="fa fa-history"></i> Updated 3 minutes ago
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">날짜 선택 & 총 기간 설정(최대 10일)</h5>
+                <!-- <p class="card-category">Last Campaign Performance</p> -->
+              </div>
+              <div class="card-body ">
+                <canvas width="200" height="10"></canvas>
+                <!-- <canvas id="chartEmail" width="200" height="100"></canvas> -->
+              </div>
+              <div class="card-footer ">
+                <!-- <div class="legend">
+                  <i class="fa fa-circle text-primary"></i> Opened
+                  <i class="fa fa-circle text-warning"></i> Read
+                  <i class="fa fa-circle text-danger"></i> Deleted
+                  <i class="fa fa-circle text-gray"></i> Unopened
+                </div> -->
+                <!-- <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar"></i> Number of emails sent
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">관심 키워드 선택</h5>
+                <!-- <p class="card-category">Last Campaign Performance</p> -->
+              </div>
+              <div class="card-body ">
+              <!-- <div id="keywords"></div> -->
+                <!-- <canvas width="200" height="100"></canvas> -->
+                <canvas id="card-footer" width="200" height="10"></canvas>
+              </div>
+              <div class="card-footer ">
+                <!-- <div class="legend">
+                  <i class="fa fa-circle text-primary"></i> Opened
+                  <i class="fa fa-circle text-warning"></i> Read
+                  <i class="fa fa-circle text-danger"></i> Deleted
+                  <i class="fa fa-circle text-gray"></i> Unopened
+                </div> -->
+                <!-- <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar"></i> Number of emails sent
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">타임라인 키워드</h5>
+                <p class="card-category">24 Hours performance</p>
+              </div>
+              <div class="card-body ">
+                <canvas id="charts" width="400" height="200"></canvas>
+                <!-- <canvas id=chartHours></canvas> -->
+              </div>
+              <div class="card-footer ">
+                <!-- <hr>
+                <div class="stats">
+                  <i class="fa fa-history"></i> Updated 3 minutes ago
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">주요 관심사</h5>
+                <p class="card-category">Last Campaign Performance</p>
+              </div>
+              <div class="card-body ">
+                <canvas id="keywords" width="200" height="200"></canvas>
+              </div>
+              <div class="card-footer ">
+                <div class="legend">
+                  <i class="fa fa-circle text-primary"></i> Opened
+                  <i class="fa fa-circle text-warning"></i> Read
+                  <i class="fa fa-circle text-danger"></i> Deleted
+                  <i class="fa fa-circle text-gray"></i> Unopened
+                </div>
+                <!-- <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar"></i> Number of emails sent
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-title">요약 결과</h5>
+                <p class="card-category">Line Chart with Points</p>
+              </div>
+              <div class="card-body">
+                <canvas id="speedChart" width="400" height="100"></canvas>
+              </div>
+              <div class="card-footer">
+                <div class="chart-legend">
+                  <i class="fa fa-circle text-info"></i> Tesla Model S
+                  <i class="fa fa-circle text-warning"></i> BMW 5 Series
+                </div>
+                <!-- <hr />
+                <div class="card-stats">
+                  <i class="fa fa-check"></i> Data information certified
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
@@ -182,18 +322,18 @@ Coded by www.creative-tim.com
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Capacity</p>
-                      <p class="card-title">150GB<p>
+                      <p class="card-category">총 대화 수</p>
+                      <p class="card-title">1500<p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card-footer ">
-                <hr>
+                <!-- <hr>
                 <div class="stats">
                   <i class="fa fa-refresh"></i>
                   Update Now
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -208,18 +348,18 @@ Coded by www.creative-tim.com
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Revenue</p>
-                      <p class="card-title">$ 1,345<p>
+                      <p class="card-category">요약 대화 수</p>
+                      <p class="card-title">500<p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card-footer ">
-                <hr>
+                <!-- <hr>
                 <div class="stats">
                   <i class="fa fa-calendar-o"></i>
                   Last day
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -234,18 +374,18 @@ Coded by www.creative-tim.com
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Errors</p>
-                      <p class="card-title">23<p>
+                      <p class="card-category">대화량 감소 비율</p>
+                      <p class="card-title">33%<p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card-footer ">
-                <hr>
+                <!-- <hr>
                 <div class="stats">
                   <i class="fa fa-clock-o"></i>
                   In the last hour
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -267,76 +407,11 @@ Coded by www.creative-tim.com
                 </div>
               </div>
               <div class="card-footer ">
-                <hr>
+                <!-- <hr>
                 <div class="stats">
                   <i class="fa fa-refresh"></i>
                   Update now
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card ">
-              <div class="card-header ">
-                <h5 class="card-title">Users Behavior</h5>
-                <p class="card-category">24 Hours performance</p>
-              </div>
-              <div class="card-body ">
-                <canvas id=chartHours width="400" height="100"></canvas>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-history"></i> Updated 3 minutes ago
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card ">
-              <div class="card-header ">
-                <h5 class="card-title">Email Statistics</h5>
-                <p class="card-category">Last Campaign Performance</p>
-              </div>
-              <div class="card-body ">
-                <canvas id="chartEmail"></canvas>
-              </div>
-              <div class="card-footer ">
-                <div class="legend">
-                  <i class="fa fa-circle text-primary"></i> Opened
-                  <i class="fa fa-circle text-warning"></i> Read
-                  <i class="fa fa-circle text-danger"></i> Deleted
-                  <i class="fa fa-circle text-gray"></i> Unopened
-                </div>
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar"></i> Number of emails sent
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-8">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-title">NASDAQ: AAPL</h5>
-                <p class="card-category">Line Chart with Points</p>
-              </div>
-              <div class="card-body">
-                <canvas id="speedChart" width="400" height="100"></canvas>
-              </div>
-              <div class="card-footer">
-                <div class="chart-legend">
-                  <i class="fa fa-circle text-info"></i> Tesla Model S
-                  <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                </div>
-                <hr />
-                <div class="card-stats">
-                  <i class="fa fa-check"></i> Data information certified
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -346,18 +421,18 @@ Coded by www.creative-tim.com
         <div class="container-fluid">
           <div class="row">
             <nav class="footer-nav">
-              <ul>
+              <!-- <ul>
                 <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
                 <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
                 <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-              </ul>
+              </ul> -->
             </nav>
             <div class="credits ml-auto">
-              <span class="copyright">
+              <!-- <span class="copyright">
                 © <script>
                   document.write(new Date().getFullYear())
                 </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
+              </span> -->
             </div>
           </div>
         </div>
@@ -385,5 +460,174 @@ Coded by www.creative-tim.com
     });
   </script>
 </body>
+<script type="text/javascript">
+  // Initialize the echarts instance based on the prepared dom
+  var myChart = echarts.init(document.getElementById('charts'),null);
+  const labelOption = {
+      show: true,
+      rotate: 90,
+      formatter: '{c}',
+      fontSize: 16,
+      rich: {
+          name: {}
+      }
+  };
+  var option = {
+  title: {
+      text: 'Rainfall vs Evaporation',
+      subtext: 'Fake Data'
+  },
+  tooltip: {
+      trigger: 'axis'
+  },
+  legend: {
+      data: ['Rainfall', 'Evaporation']
+  },
+  toolbox: {
+      show: true,
+      feature: {
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+      }
+  },
+  calculable: true,
+  xAxis: [
+      {
+      // type: 'time',
+      type: 'category',
+      // prettier-ignore
+      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      }
+  ],
+  yAxis: [
+      {
+      type: 'value'
+      }
+  ],
+  series: [
+      {
+      label: labelOption,
+      name: 'Rainfall',
+      type: 'bar',
+      data: [
+          2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
+      ],
+      markPoint: {
+          data: [
+          // 데이터의 개수만큼
+          // 포문 짜면되지않을까? -> 리스트 컴프리핸션 몰라 ㅋ
+          { name: '7', value: '하윙', xAxis: 7, yAxis: 179 },
+          { name: '0', value: '하윙', xAxis: 0, yAxis: 179 },
+          { name: '1', value: '하윙', xAxis: 1, yAxis: 179 },
+          { name: '2', value: '하윙', xAxis: 2, yAxis: 179 },
+          { name: '3', value: '하윙', xAxis: 3, yAxis: 179 },
+          { name: '4', value: '하윙', xAxis: 4, yAxis: 179 },
+          { name: '5', value: '하윙', xAxis: 5, yAxis: 179 },
+          { name: '6', value: '하윙', xAxis: 6, yAxis: 179 },
+          { name: '8', value: '하윙', xAxis: 8, yAxis: 179 },
+          { name: '9', value: '하윙', xAxis: 9, yAxis: 179 },
+          { name: '10', value: '하윙', xAxis: 10, yAxis: 179 },
+          { name: '11', value: '하윙', xAxis: 11, yAxis: 179 }
+          ]
+      },
+      markLine: {
+          data: [{ yAxis: 70, name: 'Avg' }]
+      }
+      }
+  ]
+  };
 
+  // Display the chart using the configuration items and data just specified.
+  myChart.setOption(option);
+  myChart.on('click', function (params){
+      if (params.componentType === 'markPoint'){
+      window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=' +  encodeURIComponent(params.name))}
+      else if (params.componentType === 'series'){
+
+      }
+  })
+</script>
+<script type="text/javascript">
+  // Initialize the echarts instance based on the prepared dom
+  var myChart = echarts.init(document.getElementById('keywords'),null);
+  // myChart.resize({
+  // width: 800,
+  // height: 400
+  // });
+      
+  // Specify the configuration items and data for the chart
+  var option = {
+      tooltip: {
+          trigger: 'item',
+          formatter: '{a} <br/>{b} : {c} ({d}%)'
+      },
+      legend: {
+          orient: 'vertical',
+          left: 'left',
+          data: [
+          'Direct Access',
+          'Email Marketing',
+          'Affiliate Ads',
+          'Video Ads',
+          'Search Engines'
+          ]
+      },
+      series: [
+          {
+          name: 'Access Source',
+          type: 'pie',
+          radius: '55%',
+          center: ['50%', '60%'],
+          data: [
+              { value: 335, name: 'Direct Access' },
+              { value: 310, name: 'Email Marketing' },
+              { value: 234, name: 'Affiliate Ads' },
+              { value: 135, name: 'Video Ads' },
+              { value: 1548, name: 'Search Engines' }
+          ],
+          emphasis: {
+              itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+          }
+          }
+      ]
+      };
+
+      let currentIndex = -1;
+
+      setInterval(function() {
+      var dataLen = option.series[0].data.length;
+      myChart.dispatchAction({
+          type: 'downplay',
+          seriesIndex: 0,
+          dataIndex: currentIndex
+      });
+      currentIndex = (currentIndex + 1) % dataLen;
+      myChart.dispatchAction({
+          type: 'highlight',
+          seriesIndex: 0,
+          dataIndex: currentIndex
+      });
+      myChart.dispatchAction({
+          type: 'showTip',
+          seriesIndex: 0,
+          dataIndex: currentIndex
+      });
+      }, 1000);
+
+  // Display the chart using the configuration items and data just specified.
+  myChart.setOption(option);
+  myChart.on('click', function (params){
+      if (params.componentType === 'markPoint'){
+      window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=' +  encodeURIComponent(params.name))}
+      else if (params.componentType === 'series'){
+
+      }
+  })
+</script>
 </html>
