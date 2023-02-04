@@ -49,5 +49,5 @@ def get_chatlist(item : User):
         chat.append(d["chat_id"])
     result['chat'] = chat
     return JSONResponse(result)
-
-uvicorn.run(router, host="127.0.0.1", port=30002)
+if __name__ =='__main__':
+    uvicorn.run(router, host="127.0.0.1", port=30002)
