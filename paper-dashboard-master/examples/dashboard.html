@@ -43,11 +43,18 @@ Coded by www.creative-tim.com
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
+
+  <!-- Jquery -->
+  
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
   <!-- Include the Bootstrap CSS file -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   
   <!-- Include the Bootstrap JavaScript file -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <!-- <style>
@@ -180,10 +187,9 @@ Coded by www.creative-tim.com
                   <!-- <input type="text">
                   <input type="submit" value="결과보기" style="direction: rtl;">
                 </form> -->
-                  <select class="form-select form-select-lg mb-3" id="basicSelect" style="width: 380px; height: 30px; font-size: larger;">
-                    <option>IT</option>
-                    <option>Blade Runner</option>
-                    <option>Thor Ragnarok</option>
+                  <select class="form-select form-select-lg mb-3" name="selchat" id="selchat" style="width: 380px; height: 30px; font-size: larger;">  
+                  <!-- <select class="form-select form-select-lg mb-3" id="basicSelect" style="width: 380px; height: 30px; font-size: larger;"> -->
+                    <option>--선택--</option>
                   </select>
                   <!-- <ul class="dropdown-menu">
                     <li><button class="dropdown-item" type="button">Dropdown item1</button></li>
@@ -452,10 +458,11 @@ Coded by www.creative-tim.com
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <!-- <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>Paper Dashboard DEMO methods, don't include it in your project! -->
   <!-- <script src="../assets/demo/demo.js"></script> -->
-  <script>
+  <!-- <script>
     $(document).ready(function() {
+      console.log('page open...')
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-      demo.initChartsPages();
+      // demo.initChartsPages();
       $('.dropdown-toggle').dropdown();
       var options = ["Option 1", "Option 2", "Option 3", "Option 4"];
   
@@ -470,7 +477,55 @@ Coded by www.creative-tim.com
         $("select_room").appendChild(el);
       }
     });
+  </script> -->
+  <script>
+    const sel = document.getElementById("selchat");  
+
+    
+    
+    $(document).ready(function () {
+      console.log("page open...");        
+      
+
+      $.ajax({
+        type : 'POST',
+        url : 'chat',
+        dataType: "json",
+        contentType: "application/json;charset=UTF-8",
+        data : JSON.stringify({id:"jaeuk" , password : "hi"}),
+        success: function(data){
+          console.log(data)
+          console.log('hi')
+          var data = data.chat
+          for (var i = 0; i < data.length; i++) {
+            var opt = data[i];
+            var el = document.createElement("option");
+            //<option></option>
+            el.textContent = opt;
+            //<option textContent = data[i] >value</option>
+            el.value = opt;
+            sel.appendChild(el);
+          }
+        }
+      })
+     
+
+      sel.onClick(() => {
+        console.log('hi')
+      })
+
+    
+
+    });
+
+
+
+    
+
   </script>
+
+
+
 </body>
 <!-- timeline 시각화 하는거  -->
 <script src="../assets/js/get_timeline.js"></script>
