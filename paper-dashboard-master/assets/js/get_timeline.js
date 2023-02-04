@@ -52,7 +52,7 @@ form.addEventListener("submit", async function(event) {
     }
     var data_for_markpoint = []
     for (let i=0;i<data.length;i++){
-        data_for_markpoint.push({name :i, value:data[i]['content'], xAxis:data[i]['start'], yAxis : 1})
+        data_for_markpoint.push({name :i, value:data[i]['content'], xAxis:data[i]['start'], yAxis : 1, dialouge : data[i]['dialouge']})
     }
 
     var myChart = echarts.init(document.getElementById('charts'),null,{width : 800 , height : 400});
@@ -130,7 +130,16 @@ form.addEventListener("submit", async function(event) {
     myChart.setOption(option);
     myChart.on('click', function (params){
         if (params.componentType === 'markPoint'){
-        window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=' +  encodeURIComponent(params.name))}
+            var reques = { dialouge : params.dialouge};
+            const data = postData(url+'/summary', reques);
+            // data
+            const summary = document.getElementById('summary')
+            let ele = document.createElement('textarea')
+            ele.style.weight = 700
+            ele.style.height = 200
+            ele.innerText(data)
+            $("summary").appendChild(ele)
+        }
         else if (params.componentType === 'series'){
         }
     })
