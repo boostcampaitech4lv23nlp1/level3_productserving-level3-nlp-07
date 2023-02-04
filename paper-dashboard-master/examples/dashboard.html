@@ -182,7 +182,8 @@ Coded by www.creative-tim.com
                 <h5 class="card-title">채팅방 선택</h5>
               </div>
               <div class="card-body ">
-                <form id="my-form" action="http://your-fastapi-server.com/submit" method="post">
+                <!-- <form id="my_form" action="http://your-fastapi-server.com/submit" method="post"> -->
+                
                   <!-- <input type="text">
                   <input type="submit" value="결과보기" style="direction: rtl;">
                 </form> -->
@@ -215,7 +216,7 @@ Coded by www.creative-tim.com
                 <div id = 'dateInput' style="display: inline-flex;"></div>
                 <!-- <canvas id="chartEmail" width="200" height="100"></canvas> -->
                 <div id="slider-container" style="display: inline-flex; margin-left: 50px;">
-                  <input type="range" min="0" max="10" value="5" class="slider" style="width: 400px;">
+                  <input type="range" min="0" max="10" value="5" id = 'time_period' class="slider" style="width: 400px;">
                   <div class="slider-value" style="display: inline-flex;">5</div>
               </div>
                 </div>
@@ -236,8 +237,10 @@ Coded by www.creative-tim.com
                 <div class="put_custom_wrap" id="interest-Keyword">
                 </div>
                 <label class="form-label select-label">Example label</label>
-                <input type="submit" value="결과보기" style="direction: rtl;">
-              </form>
+                
+                <form id="my_form">
+                  <input type="submit" name="submit" id="submit" value="결과보기">  
+                </form>
               </div>
               
               <div class="card-footer ">
@@ -450,13 +453,13 @@ Coded by www.creative-tim.com
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
+  <!-- <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script> -->
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>Paper Dashboard DEMO methods, don't include it in your project!
-  <script src="../assets/demo/demo.js"></script>
+  <!-- <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>Paper Dashboard DEMO methods, don't include it in your project!
+  <script src="../assets/demo/demo.js"></script> -->
   <script>
     $(document).ready(function() {
       console.log('page open...')
@@ -476,54 +479,7 @@ Coded by www.creative-tim.com
         $("select_room").appendChild(el);
       }
     });
-  </script> -->
-  <script>
-    const sel = document.getElementById("selchat");  
-
-    
-    
-    $(document).ready(function () {
-      console.log("page open...");        
-      
-
-      $.ajax({
-        type : 'POST',
-        url : 'chat',
-        dataType: "json",
-        contentType: "application/json;charset=UTF-8",
-        data : JSON.stringify({id:"jaeuk" , password : "hi"}),
-        success: function(data){
-          console.log(data)
-          console.log('hi')
-          var data = data.chat
-          for (var i = 0; i < data.length; i++) {
-            var opt = data[i];
-            var el = document.createElement("option");
-            //<option></option>
-            el.textContent = opt;
-            //<option textContent = data[i] >value</option>
-            el.value = opt;
-            sel.appendChild(el);
-          }
-        }
-      })
-     
-
-      sel.onClick(() => {
-        console.log('hi')
-      })
-
-    
-
-    });
-
-
-
-    
-
-  </script>
-
-
+  </script> 
 
 </body>
 <!-- timeline 시각화 하는거  -->
